@@ -1,0 +1,9 @@
+.\programa1.o: Programa1.c
+.\programa1.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\programa1.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\programa1.o: tm4c123gh6pm.h
+.\programa1.o: Nokia5110.h
+.\programa1.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\programa1.o: Uart.h
+.\programa1.o: DAC.h
+.\programa1.o: Timer.h

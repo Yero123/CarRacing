@@ -1,0 +1,18 @@
+Dependencies for Project 'plantilla', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup.s)(0x5E9D3E7E)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\tm4c123gh6pm.h)(0x5EE18A0C)()
+F (.\Programa1.c)(0x62916FA9)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\programa1.o --omf_browse .\programa1.crf --depend .\programa1.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C87C24)
+I (tm4c123gh6pm.h)(0x5EE18A0C)
+I (Nokia5110.h)(0x59213F46)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C87C24)
+I (Uart.h)(0x62916053)
+I (DAC.h)(0x62916148)
+I (Timer.h)(0x62916208)
+F (.\Nokia5110.c)(0x59213F46)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-DTM4C123GH6PM-o .\nokia5110.o --omf_browse .\nokia5110.crf --depend .\nokia5110.d)
+I (Nokia5110.h)(0x59213F46)
+F (.\Nokia5110.h)(0x59213F46)()
+F (.\Uart.h)(0x62916053)()
+F (.\DAC.h)(0x62916148)()
+F (.\Timer.h)(0x62916208)()
