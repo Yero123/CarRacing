@@ -60,20 +60,64 @@ const unsigned char Objeto[]={
 
 int main(void)
 {
+
 	Nokia5110_Init();
   Nokia5110_Clear();
 	/*ConfiguraTimer_1ms();*/
 	ConfigUART0();
 	char lectura;
+	lectura = 0x00;
 	int x=35;
+	uint32_t i;
+	Nokia5110_ClearBuffer();
+	Nokia5110_PrintBMP(x, 47, Objeto, 2);
+	Nokia5110_DisplayBuffer();
+	Nokia5110_PrintBMP(x, 47, Objeto, 2);
+	Nokia5110_DisplayBuffer();
+	Nokia5110_OutString("Car Racing");
+	Nokia5110_SetCursor(0,1);
+	Nokia5110_OutString("Presione");
+	Nokia5110_SetCursor(0,2);
+	Nokia5110_OutString("Un pulsador");
+	Nokia5110_SetCursor(0,3);
+	Nokia5110_OutString("Para jugar");
 	while(1){
-		TxCadena("Car racing primera version\n\r");
-		lectura = RxCar();
-		TxCar(lectura);
-		Nokia5110_ClearBuffer();
+		for(i = 0; i<1000000; i++){
+		
+		}
+	  Nokia5110_SetCursor(0,0);
+    Nokia5110_ClearBuffer();
+	  Nokia5110_DisplayBuffer();
+	  Nokia5110_OutString("Car Racing");
+	  Nokia5110_SetCursor(0,1);
+	  Nokia5110_OutString("Presione");
+	  Nokia5110_SetCursor(0,2);
+	  Nokia5110_OutString("Un pulsador");
+	  Nokia5110_SetCursor(0,3);
+	  Nokia5110_OutString("Para jugar");
+		
+		for(i = 0; i<1000000; i++){
+			
+		}
 		Nokia5110_PrintBMP(x, 47, Objeto, 2);
 		Nokia5110_DisplayBuffer();
-		Camino();
+		Nokia5110_OutString("Car Racing");
+	  Nokia5110_SetCursor(0,1);
+	  Nokia5110_OutString("Presione");
+	  Nokia5110_SetCursor(0,2);
+	  Nokia5110_OutString("Un pulsador");
+	  Nokia5110_SetCursor(0,3);
+	  Nokia5110_OutString("Para jugar");
+		lectura = UART0_DR_R;
+		if(lectura > 0){
+			break;
+		}
+	}
+  TxCadena("Car racing primera version\n\r");
+	while(1){
+		
+		
+		lectura =  UART0_DR_R;
 		if(lectura=='a'){
 			x=x-30;
 		}
@@ -81,6 +125,19 @@ int main(void)
 		if(lectura=='d'){
   		x=x+30;
 		}
+		
+		if(x > 65){
+			x = 65;
+		}
+		if(x < 5){
+			x = 5;
+		}
+
+		Nokia5110_ClearBuffer();
+		Nokia5110_PrintBMP(x, 47, Objeto, 2);
+		Nokia5110_DisplayBuffer();
+		Camino();
+		
 		
 	}
 	

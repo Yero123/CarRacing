@@ -45,6 +45,7 @@ void TxCar(uint8_t Car)
 //  Función que espera hasta recibir un caracter
 uint8_t RxCar(void)
 {
+
 	while ((UART0_FR_R & UART_FR_RXFE) != 0)
 		; // Espera mientra pila vacía
 	return UART0_DR_R & 0xFF;
