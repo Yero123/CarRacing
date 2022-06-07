@@ -485,7 +485,7 @@ ARM Macro Assembler    Page 8
   275 0000026C         ;
   276 0000026C                 IMPORT           __main
   277 0000026C F7FF BFFE 
-                       h       B                __main
+                       lh      B                __main
   278 00000270         
   279 00000270         ;*******************************************************
                        ***********************
@@ -2408,14 +2408,14 @@ ARM Macro Assembler    Page 20 Alphabetic symbol ordering
 Relocatable symbols
 
 Comment: __Vectors used once
-h 0000026C
+lh 0000026C
 
-Symbol: h
+Symbol: lh
    Definitions
       At line 277 in file startup.s
    Uses
       None
-Comment: h unused
+Comment: lh unused
 uDMA_Error 00000282
 
 Symbol: uDMA_Error
