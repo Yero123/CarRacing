@@ -20,12 +20,12 @@ Section Cross References
     programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_Init) for Nokia5110_Init
     programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_Clear) for Nokia5110_Clear
     programa1.o(i.main) refers to programa1.o(i.ConfigUART0) for ConfigUART0
-    programa1.o(i.main) refers to programa1.o(i.TxCadena) for TxCadena
-    programa1.o(i.main) refers to programa1.o(i.RxCar) for RxCar
-    programa1.o(i.main) refers to programa1.o(i.TxCar) for TxCar
     programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_ClearBuffer) for Nokia5110_ClearBuffer
     programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_PrintBMP) for Nokia5110_PrintBMP
     programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_DisplayBuffer) for Nokia5110_DisplayBuffer
+    programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_OutString) for Nokia5110_OutString
+    programa1.o(i.main) refers to nokia5110.o(i.Nokia5110_SetCursor) for Nokia5110_SetCursor
+    programa1.o(i.main) refers to programa1.o(i.TxCadena) for TxCadena
     programa1.o(i.main) refers to programa1.o(i.Camino) for Camino
     programa1.o(i.main) refers to programa1.o(.constdata) for Objeto
     nokia5110.o(i.Nokia5110_Clear) refers to nokia5110.o(i.lcdwrite) for lcdwrite
@@ -155,13 +155,14 @@ Removing Unused input sections from the image.
     Removing programa1.o(i.DAC_Out), (28 bytes).
     Removing programa1.o(i.HayCarRx), (24 bytes).
     Removing programa1.o(i.KEYS_Init), (112 bytes).
+    Removing programa1.o(i.RxCar), (24 bytes).
     Removing programa1.o(i.actualizarTimer), (28 bytes).
     Removing programa1.o(.data), (20 bytes).
     Removing nokia5110.o(i.Nokia5110_OutChar2), (88 bytes).
     Removing nokia5110.o(i.Nokia5110_OutUDec), (412 bytes).
     Removing nokia5110.o(i.Nokia5110_SetCursorChar), (104 bytes).
 
-10 unused section(s) (total 1022 bytes) removed from the image.
+11 unused section(s) (total 1046 bytes) removed from the image.
 
 ==============================================================================
 
@@ -172,50 +173,50 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -284,16 +285,15 @@ Image Symbol Table
     i.Nokia5110_OutString                    0x00000720   Section        0  nokia5110.o(i.Nokia5110_OutString)
     i.Nokia5110_PrintBMP                     0x00000738   Section        0  nokia5110.o(i.Nokia5110_PrintBMP)
     i.Nokia5110_SetCursor                    0x000008e0   Section        0  nokia5110.o(i.Nokia5110_SetCursor)
-    i.RxCar                                  0x00000910   Section        0  programa1.o(i.RxCar)
-    i.TxCadena                               0x00000928   Section        0  programa1.o(i.TxCadena)
-    i.TxCar                                  0x00000944   Section        0  programa1.o(i.TxCar)
-    i.lcdwrite                               0x0000095c   Section        0  nokia5110.o(i.lcdwrite)
-    lcdwrite                                 0x0000095d   Thumb Code    66  nokia5110.o(i.lcdwrite)
-    i.main                                   0x000009a8   Section        0  programa1.o(i.main)
-    .constdata                               0x00000a14   Section      663  programa1.o(.constdata)
-    ASCII                                    0x00000a14   Data         480  programa1.o(.constdata)
-    .constdata                               0x00000cab   Section      480  nokia5110.o(.constdata)
-    ASCII                                    0x00000cab   Data         480  nokia5110.o(.constdata)
+    i.TxCadena                               0x00000910   Section        0  programa1.o(i.TxCadena)
+    i.TxCar                                  0x0000092c   Section        0  programa1.o(i.TxCar)
+    i.lcdwrite                               0x00000944   Section        0  nokia5110.o(i.lcdwrite)
+    lcdwrite                                 0x00000945   Thumb Code    66  nokia5110.o(i.lcdwrite)
+    i.main                                   0x00000990   Section        0  programa1.o(i.main)
+    .constdata                               0x00000b3c   Section      663  programa1.o(.constdata)
+    ASCII                                    0x00000b3c   Data         480  programa1.o(.constdata)
+    .constdata                               0x00000dd3   Section      480  nokia5110.o(.constdata)
+    ASCII                                    0x00000dd3   Data         480  nokia5110.o(.constdata)
     .bss                                     0x20000000   Section      504  nokia5110.o(.bss)
     .bss                                     0x200001f8   Section       96  libspace.o(.bss)
     HEAP                                     0x20000258   Section        0  startup.o(HEAP)
@@ -533,13 +533,12 @@ Image Symbol Table
     Nokia5110_OutString                      0x00000721   Thumb Code    22  nokia5110.o(i.Nokia5110_OutString)
     Nokia5110_PrintBMP                       0x00000739   Thumb Code   420  nokia5110.o(i.Nokia5110_PrintBMP)
     Nokia5110_SetCursor                      0x000008e1   Thumb Code    48  nokia5110.o(i.Nokia5110_SetCursor)
-    RxCar                                    0x00000911   Thumb Code    20  programa1.o(i.RxCar)
-    TxCadena                                 0x00000929   Thumb Code    26  programa1.o(i.TxCadena)
-    TxCar                                    0x00000945   Thumb Code    18  programa1.o(i.TxCar)
-    main                                     0x000009a9   Thumb Code    72  programa1.o(i.main)
-    Objeto                                   0x00000bf4   Data         183  programa1.o(.constdata)
-    Region$$Table$$Base                      0x00000e8c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000e9c   Number         0  anon$$obj.o(Region$$Table)
+    TxCadena                                 0x00000911   Thumb Code    26  programa1.o(i.TxCadena)
+    TxCar                                    0x0000092d   Thumb Code    18  programa1.o(i.TxCar)
+    main                                     0x00000991   Thumb Code   334  programa1.o(i.main)
+    Objeto                                   0x00000d1c   Data         183  programa1.o(.constdata)
+    Region$$Table$$Base                      0x00000fb4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000fc4   Number         0  anon$$obj.o(Region$$Table)
     Screen                                   0x20000000   Data         504  nokia5110.o(.bss)
     __libspace_start                         0x200001f8   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000258   Data           0  libspace.o(.bss)
@@ -552,9 +551,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000e9c, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000fc4, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000e9c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000fc4, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -624,16 +623,15 @@ Memory Map of the image
     0x00000736   0x00000002   PAD
     0x00000738   0x000001a8   Code   RO          129    i.Nokia5110_PrintBMP  nokia5110.o
     0x000008e0   0x00000030   Code   RO          130    i.Nokia5110_SetCursor  nokia5110.o
-    0x00000910   0x00000018   Code   RO           19    i.RxCar             programa1.o
-    0x00000928   0x0000001a   Code   RO           20    i.TxCadena          programa1.o
-    0x00000942   0x00000002   PAD
-    0x00000944   0x00000018   Code   RO           21    i.TxCar             programa1.o
-    0x0000095c   0x0000004c   Code   RO          132    i.lcdwrite          nokia5110.o
-    0x000009a8   0x0000006c   Code   RO           23    i.main              programa1.o
-    0x00000a14   0x00000297   Data   RO           24    .constdata          programa1.o
-    0x00000cab   0x000001e0   Data   RO          134    .constdata          nokia5110.o
-    0x00000e8b   0x00000001   PAD
-    0x00000e8c   0x00000010   Data   RO          363    Region$$Table       anon$$obj.o
+    0x00000910   0x0000001a   Code   RO           20    i.TxCadena          programa1.o
+    0x0000092a   0x00000002   PAD
+    0x0000092c   0x00000018   Code   RO           21    i.TxCar             programa1.o
+    0x00000944   0x0000004c   Code   RO          132    i.lcdwrite          nokia5110.o
+    0x00000990   0x000001ac   Code   RO           23    i.main              programa1.o
+    0x00000b3c   0x00000297   Data   RO           24    .constdata          programa1.o
+    0x00000dd3   0x000001e0   Data   RO          134    .constdata          nokia5110.o
+    0x00000fb3   0x00000001   PAD
+    0x00000fb4   0x00000010   Data   RO          363    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
@@ -658,12 +656,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1104         76        480          0        504       7009   nokia5110.o
-       534         82        663          0          0       8146   programa1.o
-       692        632          0          0       1024        892   startup.o
+      1104         76        480          0        504       6917   nokia5110.o
+       830        136        663          0          0       7922   programa1.o
+       692        632          0          0       1024        884   startup.o
 
     ----------------------------------------------------------------------
-      2336        790       1160          0       1528      16047   Object Totals
+      2632        844       1160          0       1528      15723   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          6          0          1          0          0          0   (incl. Padding)
 
@@ -711,15 +709,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2580        806       1160          0       1624      15635   Grand Totals
-      2580        806       1160          0       1624      15635   ELF Image Totals
-      2580        806       1160          0          0          0   ROM Totals
+      2876        860       1160          0       1624      15311   Grand Totals
+      2876        860       1160          0       1624      15311   ELF Image Totals
+      2876        860       1160          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3740 (   3.65kB)
+    Total RO  Size (Code + RO Data)                 4036 (   3.94kB)
     Total RW  Size (RW Data + ZI Data)              1624 (   1.59kB)
-    Total ROM Size (Code + RO Data + RW Data)       3740 (   3.65kB)
+    Total ROM Size (Code + RO Data + RW Data)       4036 (   3.94kB)
 
 ==============================================================================
 

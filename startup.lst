@@ -484,7 +484,8 @@ ARM Macro Assembler    Page 8
   274 0000026C         ; .bss section.
   275 0000026C         ;
   276 0000026C                 IMPORT           __main
-  277 0000026C F7FF BFFE       B                __main
+  277 0000026C F7FF BFFE 
+                       h       B                __main
   278 00000270         
   279 00000270         ;*******************************************************
                        ***********************
@@ -517,13 +518,13 @@ ARM Macro Assembler    Page 8
                        ***********************
   299 00000272         HardFault_Handler
                                PROC
-  300 00000272                 EXPORT           HardFault_Handler         [WEAK
 
 
 
 ARM Macro Assembler    Page 9 
 
 
+  300 00000272                 EXPORT           HardFault_Handler         [WEAK
 ]
   301 00000272 E7FE            B                .
   302 00000274                 ENDP
@@ -582,13 +583,13 @@ ARM Macro Assembler    Page 9
   342 00000282                 EXPORT           GPIOPortD_Handler         [WEAK
 ]
   343 00000282                 EXPORT           GPIOPortE_Handler         [WEAK
-]
 
 
 
 ARM Macro Assembler    Page 10 
 
 
+]
   344 00000282                 EXPORT           UART0_Handler             [WEAK
 ]
   345 00000282                 EXPORT           UART1_Handler             [WEAK
@@ -647,13 +648,13 @@ ARM Macro Assembler    Page 10
 ]
   372 00000282                 EXPORT           UART2_Handler             [WEAK
 ]
-  373 00000282                 EXPORT           SSI1_Handler              [WEAK
 
 
 
 ARM Macro Assembler    Page 11 
 
 
+  373 00000282                 EXPORT           SSI1_Handler              [WEAK
 ]
   374 00000282                 EXPORT           Timer3A_Handler           [WEAK
 ]
@@ -712,13 +713,13 @@ ARM Macro Assembler    Page 11
   401 00000282                 EXPORT           UART6_Handler             [WEAK
 ]
   402 00000282                 EXPORT           UART7_Handler             [WEAK
-]
 
 
 
 ARM Macro Assembler    Page 12 
 
 
+]
   403 00000282                 EXPORT           I2C2_Handler              [WEAK
 ]
   404 00000282                 EXPORT           I2C3_Handler              [WEAK
@@ -777,13 +778,13 @@ ARM Macro Assembler    Page 12
 ]
   431 00000282                 EXPORT           GPIOPortP1_Handler        [WEAK
 ]
-  432 00000282                 EXPORT           GPIOPortP2_Handler        [WEAK
 
 
 
 ARM Macro Assembler    Page 13 
 
 
+  432 00000282                 EXPORT           GPIOPortP2_Handler        [WEAK
 ]
   433 00000282                 EXPORT           GPIOPortP3_Handler        [WEAK
 ]
@@ -842,13 +843,13 @@ ARM Macro Assembler    Page 13
   467 00000282         Quadrature0_Handler
   468 00000282         ADC0Seq0_Handler
   469 00000282         ADC0Seq1_Handler
-  470 00000282         ADC0Seq2_Handler
 
 
 
 ARM Macro Assembler    Page 14 
 
 
+  470 00000282         ADC0Seq2_Handler
   471 00000282         ADC0Seq3_Handler
   472 00000282         WDT_Handler
   473 00000282         Timer0A_Handler
@@ -907,13 +908,13 @@ ARM Macro Assembler    Page 14
   526 00000282         WideTimer1A_Handler
   527 00000282         WideTimer1B_Handler
   528 00000282         WideTimer2A_Handler
-  529 00000282         WideTimer2B_Handler
 
 
 
 ARM Macro Assembler    Page 15 
 
 
+  529 00000282         WideTimer2B_Handler
   530 00000282         WideTimer3A_Handler
   531 00000282         WideTimer3B_Handler
   532 00000282         WideTimer4A_Handler
@@ -972,13 +973,13 @@ ARM Macro Assembler    Page 15
   582 00000284         ; Some code in the normal code section for initializing 
                        the heap and stack.
   583 00000284         ;
-  584 00000284         ;*******************************************************
 
 
 
 ARM Macro Assembler    Page 16 
 
 
+  584 00000284         ;*******************************************************
                        ***********************
   585 00000284                 AREA             |.text|, CODE, READONLY
   586 00000000         
@@ -1037,13 +1038,13 @@ ARM Macro Assembler    Page 16
   634 00000016         ; outputs: none
   635 00000016         WaitForInterrupt
   636 00000016 BF30            WFI
-  637 00000018 4770            BX               LR
 
 
 
 ARM Macro Assembler    Page 17 
 
 
+  637 00000018 4770            BX               LR
   638 0000001A         
   639 0000001A         ;*******************************************************
                        ***********************
@@ -2407,6 +2408,14 @@ ARM Macro Assembler    Page 20 Alphabetic symbol ordering
 Relocatable symbols
 
 Comment: __Vectors used once
+h 0000026C
+
+Symbol: h
+   Definitions
+      At line 277 in file startup.s
+   Uses
+      None
+Comment: h unused
 uDMA_Error 00000282
 
 Symbol: uDMA_Error
@@ -2425,7 +2434,7 @@ Symbol: uDMA_Handler
       At line 152 in file startup.s
       At line 385 in file startup.s
 
-127 symbols
+128 symbols
 
 
 
@@ -2538,4 +2547,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 2 symbols
-480 symbols in table
+481 symbols in table
