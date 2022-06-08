@@ -13,6 +13,7 @@ void actualizarTimer(){
 		timer++;
  }
 }
+
 void setLevel (uint8_t *nivel){
 	char lectura=0x00;
 	int i;
@@ -54,6 +55,7 @@ void setLevel (uint8_t *nivel){
 		for(i = 0; i<80000;i++){}
 	}
 }
+
 void setName(char nickName[]){
 	uint16_t letter;
 	uint8_t i=0;
@@ -83,9 +85,9 @@ void setName(char nickName[]){
 void logoJuego(){
 	char lectura= 0x00;
 	Nokia5110_ClearBuffer();
-	Nokia5110_DrawFullImage(splashScreen);
+	Nokia5110_DrawFullImage(SplashScreen);
 	Nokia5110_DisplayBuffer();
-	Nokia5110_DrawFullImage(splashScreen);
+	Nokia5110_DrawFullImage(SplashScreen);
 	while(1){
 	lectura = UART0_DR_R;
 	if(lectura > 0){
@@ -93,6 +95,7 @@ void logoJuego(){
 		}
 	}
 }
+
 void evaluarMovimiento( int *x, int *y ){
 	char lectura =  UART0_DR_R;
 	if(lectura=='a'){
@@ -109,11 +112,11 @@ void evaluarMovimiento( int *x, int *y ){
 			(*x) = 5;
 		}
 		if(lectura=='w'){
-			(*y)=(*y)-20;
+			(*y)=(*y)-16;
 		}
 		
 		if(lectura=='s'){
-  		(*y)=(*y)+20;
+  		(*y)=(*y)+16;
 		}
 		
 		if((*y)> 48){

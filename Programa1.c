@@ -26,7 +26,6 @@
 
 int main(void)
 {
-	// Hola
 	/*ConfiguraTimer_1ms();*/
 	Nokia5110_Init();
   Nokia5110_Clear();
@@ -44,11 +43,14 @@ int main(void)
 	/*Juego*/
 	while(1){
 		Nokia5110_ClearBuffer();
-		Nokia5110_DrawFullImage(camino);
 		evaluarMovimiento(&x,&y),
-		Nokia5110_PrintBMP(x, y, Enemy10Point1, 2);
-		Nokia5110_DisplayBuffer();	
-		for(int o=0;o<32000;o++){}
+		Nokia5110_PrintBMP(x, y, Car, 2);
+		Nokia5110_DisplayBuffer();
+		Nokia5110_SetCursor(0,1);
+		Nokia5110_OutString("__________");
+		Nokia5110_SetCursor(0,4);
+		Nokia5110_OutString("----------");	
+		for(int o=0;o<80000;o++){}
 	}
 	
 	return 0;
