@@ -435,6 +435,16 @@
               <FileType>5</FileType>
               <FilePath>.\Uart.h</FilePath>
             </File>
+            <File>
+              <FileName>DAC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DAC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
