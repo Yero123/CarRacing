@@ -26,6 +26,7 @@
 
 int main(void)
 {
+	// Hola
 	/*ConfiguraTimer_1ms();*/
 	Nokia5110_Init();
   Nokia5110_Clear();
