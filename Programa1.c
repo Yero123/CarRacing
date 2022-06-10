@@ -24,16 +24,65 @@
 #include "Timer.h"
 #include "LogicGame.h"
 
+struct bala{
+	int isCrashed;
+	int isVisible;
+	int x;
+	int y;
+}
+bala1={0,0,30,30},
+bala2={0,0,30,30},
+bala3={0,0,30,30};
+
+struct enemigo{
+	int isCrashed;
+	int x;
+	int y;
+}
+enemigo1={0,80,47},
+enemigo2={0,30,30},
+enemigo3={0,30,30};
+
+
+struct carro{
+	int x;
+	int y;
+}
+carro={35,47};
+
+
+int tiempo=0;
+int disparar=0;
+
+void SysTick_Handler(void){
+	tiempo++;
+	if(tiempo%500==0){
+		if(bala1.isVisible){
+			bala1.x=bala1.x+10;
+		}
+		if(bala1.x>80){
+			bala1.x=30;
+			bala1.isVisible=0;
+		}
+	}
+	if(tiempo>=1000){
+		if(enemigo1.x<30){
+			enemigo1.x=80;
+		}else{
+		enemigo1.x=enemigo1.x-10;
+		}
+		tiempo=0;
+	}
+	
+}
+
 int main(void)
 {
-	/*ConfiguraTimer_1ms();*/
+	ConfiguraSysTick();
 	Nokia5110_Init();
   Nokia5110_Clear();
 	ConfigUART0();
-	
 	/*Posicion X Y del personaje */
-	int x=35;
-	int y=47;
 	char nickName[3]={'-','-','-'};
 	uint8_t level;
 	logoJuego();
@@ -42,9 +91,12 @@ int main(void)
 	Nokia5110_DisplayBuffer();
 	/*Juego*/
 	while(1){
+	
 		Nokia5110_ClearBuffer();
-		evaluarMovimiento(&x,&y),
-		Nokia5110_PrintBMP(x, y, Car, 2);
+		evaluarMovimiento(&carro.x,&carro.y),
+		Nokia5110_PrintBMP(carro.x, carro.y, Car, 2);
+		Nokia5110_PrintBMP(enemigo1.x,enemigo1.y, Enemigo, 2);
+		if(bala1.isVisible)Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
 		Nokia5110_DisplayBuffer();
 		Nokia5110_SetCursor(0,1);
 		Nokia5110_OutString("__________");

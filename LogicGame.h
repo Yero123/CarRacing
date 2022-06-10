@@ -126,3 +126,15 @@ void evaluarMovimiento( int *x, int *y ){
 			(*y) = 10;
 		}
 }
+
+/*
+void evaluarDisparo(){
+	char lectura2 = UART0_DR_R;
+	if(lectura2 == 't'){
+		bala1.isVisible=1;
+		bala1.y=carro.y;
+	}
+}
+*/
+
+	//evaluarDisparo();
