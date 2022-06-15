@@ -48,7 +48,7 @@ struct carro{
 	int x;
 	int y;
 }
-carro={35,47};
+carro={2,47};
 
 
 int tiempo=0;
@@ -93,7 +93,7 @@ int main(void)
 	while(1){
 	
 		Nokia5110_ClearBuffer();
-		evaluarMovimiento(&carro.x,&carro.y),
+		evaluarMovimiento(&carro.y);
 		Nokia5110_PrintBMP(carro.x, carro.y, Car, 2);
 		Nokia5110_PrintBMP(enemigo1.x,enemigo1.y, Enemigo, 2);
 		if(bala1.isVisible)Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
