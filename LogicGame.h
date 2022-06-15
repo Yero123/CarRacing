@@ -4,8 +4,10 @@
 #include "Uart.h"
 #include "Assets.h"
 uint32_t timer=0;
+uint8_t carril = 2;
 const uint8_t selector_x[]={-10,4,29,53,4,29};
 const uint8_t selector_y[]={-10,30,30,30,47,47};
+const uint8_t pos_carro_y[]={47,29,8};
 
 void actualizarTimer(){
 	if((NVIC_ST_CTRL_R & NVIC_ST_CTRL_COUNT)){
@@ -96,33 +98,23 @@ void logoJuego(){
 	}
 }
 
-void evaluarMovimiento( int *x, int *y ){
+void evaluarMovimiento(int *y ){
+	
 	char lectura =  UART0_DR_R;
-	if(lectura=='a'){
-			(*x)=(*x)-30;
-		}
-		if(lectura=='d'){
-  		(*x)=(*x)+30;
-		}
-		
-		if((*x) > 65){
-			(*x) = 65;
-		}
-		if((*x) < 5){
-			(*x) = 5;
-		}
+
 		if(lectura=='w'){
-			(*y)=(*y)-16;
+			carril=carril + 1;
 		}
 		
 		if(lectura=='s'){
-  		(*y)=(*y)+16;
+  		carril=carril - 1;
 		}
 		
-		if((*y)> 48){
-			(*y) = 47;
+		if(carril> 3){
+			carril = 3;
 		}
-		if((*y) < 7){
-			(*y) = 10;
+		if(carril < 1){
+			carril = 1;
 		}
+		*y=pos_carro_y[carril-1];
 }

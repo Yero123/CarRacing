@@ -34,7 +34,7 @@ int main(void)
 	ConfigUART0();
 	
 	/*Posicion X Y del personaje */
-	int x=35;
+	int x=4;
 	int y=47;
 	char nickName[3]={'-','-','-'};
 	uint8_t level;
@@ -45,7 +45,7 @@ int main(void)
 	/*Juego*/
 	while(1){
 		Nokia5110_ClearBuffer();
-		evaluarMovimiento(&x,&y),
+		evaluarMovimiento(&y);
 		Nokia5110_PrintBMP(x, y, Car, 2);
 		Nokia5110_DisplayBuffer();
 		Nokia5110_SetCursor(0,1);
@@ -54,5 +54,5 @@ int main(void)
 		Nokia5110_OutString("----------");	
 		for(int o=0;o<80000;o++){}
 	}
-	return 0;
+	
 }
