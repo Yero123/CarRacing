@@ -118,3 +118,16 @@ void evaluarMovimiento(int *y ){
 		}
 		*y=pos_carro_y[carril-1];
 }
+
+
+/*
+void evaluarDisparo(){
+	char lectura2 = UART0_DR_R;
+	if(lectura2 == 't'){
+		bala1.isVisible=1;
+		bala1.y=carro.y;
+	}
+}
+*/
+
+	//evaluarDisparo();
