@@ -24,7 +24,8 @@
 #include "Timer.h"
 #include "LogicGame.h"
 
-
+const uint32_t vel_level[]={1000,300,250,200,150,100};
+uint8_t level = 0;
 
 struct bala{
 	int isCrashed;
@@ -62,7 +63,7 @@ int disparar=0;
 
 
 
-void SysTick_Handler(void){
+void SysTick_Handler(){
 	tiempo++;
 	i++;
 	if(i%11 == 0){
@@ -90,7 +91,7 @@ void SysTick_Handler(void){
 	if(i >=739){
 		i = 0;
 	}
-	if(tiempo>=100){
+	if(tiempo>=vel_level[level]){
 		if(enemigo1.x<20){
 			enemigo1.isVisible=0;
 		}else{
@@ -148,7 +149,7 @@ int main(void)
 	ConfigUART0();
 	/*Posicion X Y del personaje */
 	char nickName[3]={'-','-','-'};
-	uint8_t level;
+	
 	logoJuego();
 	setName(nickName);
 	setLevel(&level);
@@ -163,7 +164,7 @@ int main(void)
 		if(enemigo1.isVisible)Nokia5110_PrintBMP(enemigo1.x,enemigo1.y, Enemigo, 2);
 		if(enemigo2.isVisible)Nokia5110_PrintBMP(enemigo2.x,enemigo2.y, Enemigo, 2);
 		if(enemigo3.isVisible)Nokia5110_PrintBMP(enemigo3.x,enemigo3.y, Enemigo, 2);
-		if(bala1.isVisible)Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
+		//if(bala1.isVisible)Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
 		Nokia5110_DisplayBuffer();
 		Nokia5110_SetCursor(0,1);
 		Nokia5110_OutString("__________");
