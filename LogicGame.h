@@ -119,6 +119,80 @@ void evaluarMovimiento(int *y ){
 		*y=pos_carro_y[carril-1];
 }
 
+void evaluarMovimientoDisparo(int *y,int *balaVisible,int *balaY ){
+	
+	char lectura =  UART0_DR_R;
+
+		if(lectura=='w'){
+			carril=carril + 1;
+		}
+		
+		if(lectura=='s'){
+  		carril=carril - 1;
+		}
+		
+		if(carril> 3){
+			carril = 3;
+		}
+		if(carril < 1){
+			carril = 1;
+		}
+		if(lectura == 't'){
+			(*balaVisible)=1;
+			(*balaY)=(*y)-3;
+		}
+		*y=pos_carro_y[carril-1];
+}
+const unsigned char* convertNumberToMatrix(int number){
+	if(number==0){
+		return zero;
+	}
+	if(number==1){
+		return one;
+	}
+	if(number==2){
+		return two;
+	}
+	if(number==3){
+		return three;
+	}
+	if(number==4){
+		return four;
+	}
+	if(number==5){
+		return five;
+	}
+	if(number==6){
+		return six;
+	}
+	if(number==7){
+		return seven;
+	}
+	if(number==8){
+		return eight;
+	}
+	if(number==9){
+		return nine;
+	}
+	return zero;
+}
+void showScore(int number){
+	// const unsigned char numbersBMP[10][133]={*zero,*one,*two,*three,*four,*five,*six,*seven,*eight,*nine};
+	int points_y=4;
+	int points_x=73;
+	int digitos[4]={0,0,0,0};
+	int digito=0,n=0;
+	while(number!=0&& number>0){
+		digito=number%10;
+		number=number/10;
+		digitos[n]=digito;
+		n++;
+	}
+	Nokia5110_PrintBMP(points_x, points_y, convertNumberToMatrix(digitos[3]), 0);
+	Nokia5110_PrintBMP(points_x+3, points_y, convertNumberToMatrix(digitos[2]), 0);
+	Nokia5110_PrintBMP(points_x+6, points_y, convertNumberToMatrix(digitos[1]), 0);
+	Nokia5110_PrintBMP(points_x+9, points_y, convertNumberToMatrix(digitos[0]), 0);
+}
 
 /*
 void evaluarDisparo(){
