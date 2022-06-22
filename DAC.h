@@ -1,5 +1,5 @@
 /*****************************Funciones para el DAC************************************/
-#include <stdint.h>
+
 #include "tm4c123gh6pm.h"
 
 uint32_t Tensiones[4] = {0,1,2,3}; //Variable para el DAC
