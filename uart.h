@@ -1,6 +1,6 @@
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //  Funcion de configuración del UART0
-#include <stdint.h>
+
 #include "tm4c123gh6pm.h"
 void ConfigUART0(void)
 {
