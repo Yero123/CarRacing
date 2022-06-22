@@ -144,7 +144,7 @@ void evaluarMovimiento(int *y)
 	*y = pos_carro_y[carril - 1];
 }
 
-void evaluarMovimientoDisparo(int *y, int *balaVisible, int *balaY)
+void evaluarMovimientoDisparo(int *y, int *balaVisible, int *balaY, int *stop, int *reset)
 {
 
 	char lectura = UART0_DR_R;
@@ -173,6 +173,15 @@ void evaluarMovimientoDisparo(int *y, int *balaVisible, int *balaY)
 		(*balaY) = (*y) - 3;
 	}
 	*y = pos_carro_y[carril - 1];
+
+	if (lectura == 'p')
+	{
+		(*stop) = !(*stop);
+	}
+	if (lectura == '0')
+	{
+		(*reset) = !(*reset);
+	}
 }
 const unsigned char *convertNumberToMatrix(int number)
 {
@@ -243,7 +252,7 @@ void showScore(int number)
 //  salida: el mayor valor del arreglo
 int calculaMayor(int Arreglo[])
 {
-	uint8_t mayor, i;
+	int mayor, i;
 	mayor = Arreglo[0];
 	for (i = 1; i < 3; i++)
 	{
@@ -257,7 +266,7 @@ int calculaMayor(int Arreglo[])
 //  salida: el menor valor del arreglo
 int calculaMenor(int Arreglo[])
 {
-	uint8_t menor, i;
+	int menor, i;
 	menor = Arreglo[0];
 	for (i = 1; i < 3; i++)
 	{

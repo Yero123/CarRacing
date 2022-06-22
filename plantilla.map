@@ -247,14 +247,14 @@ Removing Unused input sections from the image.
     Removing programa1.o(i.TxCadena), (26 bytes).
     Removing programa1.o(i.TxCar), (24 bytes).
     Removing programa1.o(i.actualizarTimer), (28 bytes).
-    Removing programa1.o(i.calculaMayor), (30 bytes).
+    Removing programa1.o(i.calculaMayor), (28 bytes).
     Removing programa1.o(i.evaluarMovimiento), (88 bytes).
     Removing programa1.o(i.ordena), (78 bytes).
     Removing nokia5110.o(i.Nokia5110_OutChar2), (88 bytes).
     Removing nokia5110.o(i.Nokia5110_OutUDec), (412 bytes).
     Removing nokia5110.o(i.Nokia5110_SetCursorChar), (104 bytes).
 
-13 unused section(s) (total 1190 bytes) removed from the image.
+13 unused section(s) (total 1188 bytes) removed from the image.
 
 ==============================================================================
 
@@ -421,23 +421,23 @@ Image Symbol Table
     i.RxCar                                  0x00000c38   Section        0  programa1.o(i.RxCar)
     i.SysTick_Handler                        0x00000c50   Section        0  programa1.o(i.SysTick_Handler)
     i.calculaMenor                           0x00000e74   Section        0  programa1.o(i.calculaMenor)
-    i.convertNumberToMatrix                  0x00000e94   Section        0  programa1.o(i.convertNumberToMatrix)
-    i.evaluarChoque                          0x00000f10   Section        0  programa1.o(i.evaluarChoque)
-    i.evaluarMovimientoDisparo               0x00000f98   Section        0  programa1.o(i.evaluarMovimientoDisparo)
-    i.lcdwrite                               0x00001004   Section        0  nokia5110.o(i.lcdwrite)
-    lcdwrite                                 0x00001005   Thumb Code    66  nokia5110.o(i.lcdwrite)
-    i.logoJuego                              0x00001050   Section        0  programa1.o(i.logoJuego)
-    i.main                                   0x00001084   Section        0  programa1.o(i.main)
-    i.setLevel                               0x000013a0   Section        0  programa1.o(i.setLevel)
-    i.setName                                0x000014c8   Section        0  programa1.o(i.setName)
-    i.showCongratulation                     0x00001574   Section        0  programa1.o(i.showCongratulation)
-    i.showNumberOfHearts                     0x000015bc   Section        0  programa1.o(i.showNumberOfHearts)
-    i.showRecords                            0x0000162c   Section        0  programa1.o(i.showRecords)
-    i.showScore                              0x000018ec   Section        0  programa1.o(i.showScore)
-    .constdata                               0x0000197c   Section     3804  programa1.o(.constdata)
-    ASCII                                    0x0000197c   Data         480  programa1.o(.constdata)
-    .constdata                               0x00002858   Section      480  nokia5110.o(.constdata)
-    ASCII                                    0x00002858   Data         480  nokia5110.o(.constdata)
+    i.convertNumberToMatrix                  0x00000e90   Section        0  programa1.o(i.convertNumberToMatrix)
+    i.evaluarChoque                          0x00000f0c   Section        0  programa1.o(i.evaluarChoque)
+    i.evaluarMovimientoDisparo               0x00000f94   Section        0  programa1.o(i.evaluarMovimientoDisparo)
+    i.lcdwrite                               0x00001020   Section        0  nokia5110.o(i.lcdwrite)
+    lcdwrite                                 0x00001021   Thumb Code    66  nokia5110.o(i.lcdwrite)
+    i.logoJuego                              0x0000106c   Section        0  programa1.o(i.logoJuego)
+    i.main                                   0x000010a0   Section        0  programa1.o(i.main)
+    i.setLevel                               0x000013d0   Section        0  programa1.o(i.setLevel)
+    i.setName                                0x000014f8   Section        0  programa1.o(i.setName)
+    i.showCongratulation                     0x000015a4   Section        0  programa1.o(i.showCongratulation)
+    i.showNumberOfHearts                     0x000015ec   Section        0  programa1.o(i.showNumberOfHearts)
+    i.showRecords                            0x0000165c   Section        0  programa1.o(i.showRecords)
+    i.showScore                              0x0000191c   Section        0  programa1.o(i.showScore)
+    .constdata                               0x000019ac   Section     3804  programa1.o(.constdata)
+    ASCII                                    0x000019ac   Data         480  programa1.o(.constdata)
+    .constdata                               0x00002888   Section      480  nokia5110.o(.constdata)
+    ASCII                                    0x00002888   Data         480  nokia5110.o(.constdata)
     .data                                    0x20000000   Section      204  programa1.o(.data)
     .bss                                     0x200000cc   Section      504  nokia5110.o(.bss)
     .bss                                     0x200002c4   Section      228  rand.o(.bss)
@@ -703,42 +703,42 @@ Image Symbol Table
     Nokia5110_SetCursor                      0x00000c09   Thumb Code    48  nokia5110.o(i.Nokia5110_SetCursor)
     RxCar                                    0x00000c39   Thumb Code    20  programa1.o(i.RxCar)
     SysTick_Handler                          0x00000c51   Thumb Code   492  programa1.o(i.SysTick_Handler)
-    calculaMenor                             0x00000e75   Thumb Code    30  programa1.o(i.calculaMenor)
-    convertNumberToMatrix                    0x00000e95   Thumb Code    84  programa1.o(i.convertNumberToMatrix)
-    evaluarChoque                            0x00000f11   Thumb Code   116  programa1.o(i.evaluarChoque)
-    evaluarMovimientoDisparo                 0x00000f99   Thumb Code    94  programa1.o(i.evaluarMovimientoDisparo)
-    logoJuego                                0x00001051   Thumb Code    44  programa1.o(i.logoJuego)
-    main                                     0x00001085   Thumb Code   690  programa1.o(i.main)
-    setLevel                                 0x000013a1   Thumb Code   232  programa1.o(i.setLevel)
-    setName                                  0x000014c9   Thumb Code   122  programa1.o(i.setName)
-    showCongratulation                       0x00001575   Thumb Code    52  programa1.o(i.showCongratulation)
-    showNumberOfHearts                       0x000015bd   Thumb Code   104  programa1.o(i.showNumberOfHearts)
-    showRecords                              0x0000162d   Thumb Code   672  programa1.o(i.showRecords)
-    showScore                                0x000018ed   Thumb Code   144  programa1.o(i.showScore)
-    Enemigo                                  0x00001b5c   Data         183  programa1.o(.constdata)
-    Rocket                                   0x00001c13   Data         183  programa1.o(.constdata)
-    Bala                                     0x00001cca   Data         123  programa1.o(.constdata)
-    one                                      0x00001d45   Data         133  programa1.o(.constdata)
-    two                                      0x00001dca   Data         133  programa1.o(.constdata)
-    three                                    0x00001e4f   Data         133  programa1.o(.constdata)
-    four                                     0x00001ed4   Data         133  programa1.o(.constdata)
-    five                                     0x00001f59   Data         133  programa1.o(.constdata)
-    six                                      0x00001fde   Data         133  programa1.o(.constdata)
-    seven                                    0x00002063   Data         133  programa1.o(.constdata)
-    eight                                    0x000020e8   Data         133  programa1.o(.constdata)
-    nine                                     0x0000216d   Data         133  programa1.o(.constdata)
-    zero                                     0x000021f2   Data         133  programa1.o(.constdata)
-    unoSD                                    0x00002277   Data         123  programa1.o(.constdata)
-    SplashScreen                             0x000022f2   Data         504  programa1.o(.constdata)
-    SplashScreen2                            0x000024ea   Data         504  programa1.o(.constdata)
-    Selector                                 0x000026e2   Data         199  programa1.o(.constdata)
-    Corazon                                  0x000027a9   Data         135  programa1.o(.constdata)
-    selector_x                               0x00002830   Data           6  programa1.o(.constdata)
-    selector_y                               0x00002836   Data           6  programa1.o(.constdata)
-    pos_carro_y                              0x0000283c   Data           3  programa1.o(.constdata)
-    vel_level                                0x00002840   Data          24  programa1.o(.constdata)
-    Region$$Table$$Base                      0x00002a38   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002a58   Number         0  anon$$obj.o(Region$$Table)
+    calculaMenor                             0x00000e75   Thumb Code    28  programa1.o(i.calculaMenor)
+    convertNumberToMatrix                    0x00000e91   Thumb Code    84  programa1.o(i.convertNumberToMatrix)
+    evaluarChoque                            0x00000f0d   Thumb Code   116  programa1.o(i.evaluarChoque)
+    evaluarMovimientoDisparo                 0x00000f95   Thumb Code   128  programa1.o(i.evaluarMovimientoDisparo)
+    logoJuego                                0x0000106d   Thumb Code    44  programa1.o(i.logoJuego)
+    main                                     0x000010a1   Thumb Code   710  programa1.o(i.main)
+    setLevel                                 0x000013d1   Thumb Code   232  programa1.o(i.setLevel)
+    setName                                  0x000014f9   Thumb Code   122  programa1.o(i.setName)
+    showCongratulation                       0x000015a5   Thumb Code    52  programa1.o(i.showCongratulation)
+    showNumberOfHearts                       0x000015ed   Thumb Code   104  programa1.o(i.showNumberOfHearts)
+    showRecords                              0x0000165d   Thumb Code   672  programa1.o(i.showRecords)
+    showScore                                0x0000191d   Thumb Code   144  programa1.o(i.showScore)
+    Enemigo                                  0x00001b8c   Data         183  programa1.o(.constdata)
+    Rocket                                   0x00001c43   Data         183  programa1.o(.constdata)
+    Bala                                     0x00001cfa   Data         123  programa1.o(.constdata)
+    one                                      0x00001d75   Data         133  programa1.o(.constdata)
+    two                                      0x00001dfa   Data         133  programa1.o(.constdata)
+    three                                    0x00001e7f   Data         133  programa1.o(.constdata)
+    four                                     0x00001f04   Data         133  programa1.o(.constdata)
+    five                                     0x00001f89   Data         133  programa1.o(.constdata)
+    six                                      0x0000200e   Data         133  programa1.o(.constdata)
+    seven                                    0x00002093   Data         133  programa1.o(.constdata)
+    eight                                    0x00002118   Data         133  programa1.o(.constdata)
+    nine                                     0x0000219d   Data         133  programa1.o(.constdata)
+    zero                                     0x00002222   Data         133  programa1.o(.constdata)
+    unoSD                                    0x000022a7   Data         123  programa1.o(.constdata)
+    SplashScreen                             0x00002322   Data         504  programa1.o(.constdata)
+    SplashScreen2                            0x0000251a   Data         504  programa1.o(.constdata)
+    Selector                                 0x00002712   Data         199  programa1.o(.constdata)
+    Corazon                                  0x000027d9   Data         135  programa1.o(.constdata)
+    selector_x                               0x00002860   Data           6  programa1.o(.constdata)
+    selector_y                               0x00002866   Data           6  programa1.o(.constdata)
+    pos_carro_y                              0x0000286c   Data           3  programa1.o(.constdata)
+    vel_level                                0x00002870   Data          24  programa1.o(.constdata)
+    Region$$Table$$Base                      0x00002a68   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002a88   Number         0  anon$$obj.o(Region$$Table)
     Tensiones                                0x20000000   Data          16  programa1.o(.data)
     timer                                    0x20000010   Data           4  programa1.o(.data)
     carril                                   0x20000014   Data           1  programa1.o(.data)
@@ -749,23 +749,23 @@ Image Symbol Table
     historyRecord                            0x20000024   Data           4  programa1.o(.data)
     nickName                                 0x20000028   Data           3  programa1.o(.data)
     stop                                     0x2000002c   Data           4  programa1.o(.data)
-    bala1                                    0x20000030   Data          16  programa1.o(.data)
-    bala2                                    0x20000040   Data          16  programa1.o(.data)
-    bala3                                    0x20000050   Data          16  programa1.o(.data)
-    enemigo1                                 0x20000060   Data          16  programa1.o(.data)
-    enemigo2                                 0x20000070   Data          16  programa1.o(.data)
-    enemigo3                                 0x20000080   Data          16  programa1.o(.data)
-    player1                                  0x20000090   Data           8  programa1.o(.data)
-    player2                                  0x20000098   Data           8  programa1.o(.data)
-    player3                                  0x200000a0   Data           8  programa1.o(.data)
-    count                                    0x200000a8   Data           4  programa1.o(.data)
-    carro                                    0x200000ac   Data           8  programa1.o(.data)
-    aleatorio                                0x200000b4   Data           4  programa1.o(.data)
-    aleatorio_2                              0x200000b8   Data           4  programa1.o(.data)
-    aleatorio_3                              0x200000bc   Data           4  programa1.o(.data)
-    i                                        0x200000c0   Data           4  programa1.o(.data)
-    tiempo                                   0x200000c4   Data           4  programa1.o(.data)
-    disparar                                 0x200000c8   Data           4  programa1.o(.data)
+    aleatorio                                0x20000030   Data           4  programa1.o(.data)
+    aleatorio_2                              0x20000034   Data           4  programa1.o(.data)
+    aleatorio_3                              0x20000038   Data           4  programa1.o(.data)
+    i                                        0x2000003c   Data           4  programa1.o(.data)
+    tiempo                                   0x20000040   Data           4  programa1.o(.data)
+    disparar                                 0x20000044   Data           4  programa1.o(.data)
+    count                                    0x20000048   Data           4  programa1.o(.data)
+    bala1                                    0x2000004c   Data          16  programa1.o(.data)
+    bala2                                    0x2000005c   Data          16  programa1.o(.data)
+    bala3                                    0x2000006c   Data          16  programa1.o(.data)
+    enemigo1                                 0x2000007c   Data          16  programa1.o(.data)
+    enemigo2                                 0x2000008c   Data          16  programa1.o(.data)
+    enemigo3                                 0x2000009c   Data          16  programa1.o(.data)
+    player1                                  0x200000ac   Data           8  programa1.o(.data)
+    player2                                  0x200000b4   Data           8  programa1.o(.data)
+    player3                                  0x200000bc   Data           8  programa1.o(.data)
+    carro                                    0x200000c4   Data           8  programa1.o(.data)
     Screen                                   0x200000cc   Data         504  nokia5110.o(.bss)
     _random_number_data                      0x200002c4   Data         228  rand.o(.bss)
     __libspace_start                         0x200003a8   Data          96  libspace.o(.bss)
@@ -779,9 +779,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002b24, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00002b54, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002a58, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002a88, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -873,23 +873,22 @@ Memory Map of the image
     0x00000c08   0x00000030   Code   RO          224    i.Nokia5110_SetCursor  nokia5110.o
     0x00000c38   0x00000018   Code   RO           18    i.RxCar             programa1.o
     0x00000c50   0x00000224   Code   RO           19    i.SysTick_Handler   programa1.o
-    0x00000e74   0x0000001e   Code   RO           24    i.calculaMenor      programa1.o
-    0x00000e92   0x00000002   PAD
-    0x00000e94   0x0000007c   Code   RO           25    i.convertNumberToMatrix  programa1.o
-    0x00000f10   0x00000088   Code   RO           26    i.evaluarChoque     programa1.o
-    0x00000f98   0x0000006c   Code   RO           28    i.evaluarMovimientoDisparo  programa1.o
-    0x00001004   0x0000004c   Code   RO          226    i.lcdwrite          nokia5110.o
-    0x00001050   0x00000034   Code   RO           29    i.logoJuego         programa1.o
-    0x00001084   0x0000031c   Code   RO           30    i.main              programa1.o
-    0x000013a0   0x00000128   Code   RO           32    i.setLevel          programa1.o
-    0x000014c8   0x000000ac   Code   RO           33    i.setName           programa1.o
-    0x00001574   0x00000048   Code   RO           34    i.showCongratulation  programa1.o
-    0x000015bc   0x00000070   Code   RO           35    i.showNumberOfHearts  programa1.o
-    0x0000162c   0x000002c0   Code   RO           36    i.showRecords       programa1.o
-    0x000018ec   0x00000090   Code   RO           37    i.showScore         programa1.o
-    0x0000197c   0x00000edc   Data   RO           38    .constdata          programa1.o
-    0x00002858   0x000001e0   Data   RO          228    .constdata          nokia5110.o
-    0x00002a38   0x00000020   Data   RO          506    Region$$Table       anon$$obj.o
+    0x00000e74   0x0000001c   Code   RO           24    i.calculaMenor      programa1.o
+    0x00000e90   0x0000007c   Code   RO           25    i.convertNumberToMatrix  programa1.o
+    0x00000f0c   0x00000088   Code   RO           26    i.evaluarChoque     programa1.o
+    0x00000f94   0x0000008c   Code   RO           28    i.evaluarMovimientoDisparo  programa1.o
+    0x00001020   0x0000004c   Code   RO          226    i.lcdwrite          nokia5110.o
+    0x0000106c   0x00000034   Code   RO           29    i.logoJuego         programa1.o
+    0x000010a0   0x00000330   Code   RO           30    i.main              programa1.o
+    0x000013d0   0x00000128   Code   RO           32    i.setLevel          programa1.o
+    0x000014f8   0x000000ac   Code   RO           33    i.setName           programa1.o
+    0x000015a4   0x00000048   Code   RO           34    i.showCongratulation  programa1.o
+    0x000015ec   0x00000070   Code   RO           35    i.showNumberOfHearts  programa1.o
+    0x0000165c   0x000002c0   Code   RO           36    i.showRecords       programa1.o
+    0x0000191c   0x00000090   Code   RO           37    i.showScore         programa1.o
+    0x000019ac   0x00000edc   Data   RO           38    .constdata          programa1.o
+    0x00002888   0x000001e0   Data   RO          228    .constdata          nokia5110.o
+    0x00002a68   0x00000020   Data   RO          506    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x000000cc, Max: 0xffffffff, ABSOLUTE)
@@ -917,14 +916,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1104         76        480          0        504       6917   nokia5110.o
-      3680        454       3804        204          0      16530   programa1.o
-       692        632          0          0       1024        884   startup.o
+      1104         76        480          0        504       7009   nokia5110.o
+      3730        452       3804        204          0      16822   programa1.o
+       692        632          0          0       1024        892   startup.o
 
     ----------------------------------------------------------------------
-      5484       1162       4316        204       1528      24331   Object Totals
+      5532       1160       4316        204       1528      24723   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          0          0          0          0   (incl. Padding)
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -984,15 +983,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6524       1226       4316        204       1852      23739   Grand Totals
-      6524       1226       4316        204       1852      23739   ELF Image Totals
-      6524       1226       4316        204          0          0   ROM Totals
+      6572       1224       4316        204       1852      24131   Grand Totals
+      6572       1224       4316        204       1852      24131   ELF Image Totals
+      6572       1224       4316        204          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                10840 (  10.59kB)
+    Total RO  Size (Code + RO Data)                10888 (  10.63kB)
     Total RW  Size (RW Data + ZI Data)              2056 (   2.01kB)
-    Total ROM Size (Code + RO Data + RW Data)      11044 (  10.79kB)
+    Total ROM Size (Code + RO Data + RW Data)      11092 (  10.83kB)
 
 ==============================================================================
 

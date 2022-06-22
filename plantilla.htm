@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\plantilla.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\plantilla.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Jun 21 23:46:36 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed Jun 22 12:32:56 2022
 <BR><P>
-<H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        256 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; showRecords &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 <P>
@@ -710,7 +710,7 @@ Global Symbols
 <P><STRONG><a name="[dc]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[91]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; showRecords &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -993,7 +993,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[b9]"></a>calculaMenor</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, programa1.o(i.calculaMenor))
+<P><STRONG><a name="[b9]"></a>calculaMenor</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, programa1.o(i.calculaMenor))
 <BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1005,8 +1005,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b3]"></a>evaluarMovimientoDisparo</STRONG> (Thumb, 94 bytes, Stack size 12 bytes, programa1.o(i.evaluarMovimientoDisparo))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = evaluarMovimientoDisparo
+<P><STRONG><a name="[b3]"></a>evaluarMovimientoDisparo</STRONG> (Thumb, 128 bytes, Stack size 20 bytes, programa1.o(i.evaluarMovimientoDisparo))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = evaluarMovimientoDisparo
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1021,8 +1021,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>main</STRONG> (Thumb, 690 bytes, Stack size 16 bytes, programa1.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<P><STRONG><a name="[92]"></a>main</STRONG> (Thumb, 710 bytes, Stack size 24 bytes, programa1.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = main &rArr; showRecords &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Nokia5110_SetCursor
