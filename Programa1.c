@@ -41,7 +41,11 @@ int i = 0;
 int tiempo = 0;
 int disparar = 0;
 int count = 0;
-
+	int puntajes[3];
+	int mayorPuntaje = 0;
+	int menorPuntaje = 0;
+	int jugada = 1;
+	int reset = 0;
 struct bala
 {
 	int isCrashed;
@@ -278,110 +282,8 @@ void evaluarChoque()
 		vidas--;
 	}
 }
-int main(void)
-{
-	uint32_t i;
-	uint8_t primera_vez;
-	int puntajes[3];
-	ConfiguraSysTick();
-	Nokia5110_Init();
-	Nokia5110_Clear();
-	ConfigUART0();
-	int mayorPuntaje = 0;
-	int menorPuntaje = 0;
-	int jugada = 1;
-	int reset = 0;
-	/*Posicion X Y del personaje */
-
-	// const unsigned char *numbersBMP[10][133]={zero,one,two,three,four,five,six,seven,eight,nine};
-	int points_y = 4;
-	int points_x = 73;
-	stop = 0;
-
-	while (1)
-	{
-		logoJuego();
-		setName(nickName);
-		setLevel(&level);
-		Nokia5110_DisplayBuffer();
-		primera_vez = 1;
-		score = 0;
-		reset = 0;
-		while (vidas > 0 && reset == 0)
-		{
-
-			Nokia5110_ClearBuffer();
-			// evaluarMovimiento(&carro.y);
-			evaluarMovimientoDisparo(&carro.y, &bala1.isVisible, &bala1.y, &stop, &reset);
-			Nokia5110_PrintBMP(carro.x, carro.y, Rocket, 2);
-			showScore(score);
-			showNumberOfHearts();
-			if (primera_vez)
-			{
-				showScore(0);
-				Nokia5110_DisplayBuffer();
-				Nokia5110_SetCursor(0, 1);
-				Nokia5110_OutString("__________");
-				Nokia5110_SetCursor(0, 4);
-				Nokia5110_OutString("----------");
-				for (i = 0; i < 2000000; i++)
-				{
-				}
-				enemigo1.x = 64;
-				enemigo1.isVisible = 0;
-				enemigo2.x = 64;
-				enemigo2.isVisible = 0;
-				enemigo3.x = 64;
-				enemigo3.isVisible = 0;
-				score = 0;
-			}
-			if (enemigo1.isVisible)
-				Nokia5110_PrintBMP(enemigo1.x, enemigo1.y, Enemigo, 2);
-			if (enemigo2.isVisible)
-				Nokia5110_PrintBMP(enemigo2.x, enemigo2.y, Enemigo, 2);
-			if (enemigo3.isVisible)
-				Nokia5110_PrintBMP(enemigo3.x, enemigo3.y, Enemigo, 2);
-			if (bala1.isVisible)
-				Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
-			Nokia5110_DisplayBuffer();
-			Nokia5110_SetCursor(0, 1);
-			Nokia5110_OutString("__________");
-			Nokia5110_SetCursor(0, 4);
-			Nokia5110_OutString("----------");
-
-			if (vidas != vidaAnterior)
-			{
-				carro.y = 47;
-				enemigo1.x = 64;
-				enemigo1.isVisible = 0;
-				enemigo2.x = 64;
-				enemigo2.isVisible = 0;
-				enemigo3.x = 64;
-				enemigo3.isVisible = 0;
-				stop = 1;
-				showNumberOfHearts();
-				stop = 0;
-				vidaAnterior = vidas;
-			}
-			else
-			{
-				evaluarChoque();
-			}
-			// if(carro.y==8)vidas--;
-			for (int o = 0; o < 80000; o++)
-			{
-			}
-			primera_vez = 0;
-		}
-		if (score > historyRecord)
-		{
-			Nokia5110_ClearBuffer();
-			Nokia5110_DisplayBuffer();
-			showCongratulation();
-			historyRecord = score;
-		}
-
-		if (jugada < 4)
+void guardarScore(){
+	if (jugada < 4)
 		{
 			for (int u = 0; u < 3; u++)
 			{
@@ -443,9 +345,98 @@ int main(void)
 				}
 			}
 		}
+
+}
+
+void mostrarCamino(){
+	Nokia5110_DisplayBuffer();
+				Nokia5110_SetCursor(0, 1);
+				Nokia5110_OutString("__________");
+				Nokia5110_SetCursor(0, 4);
+				Nokia5110_OutString("----------");
+}
+void evaluateCongratulation(){
+		if (score > historyRecord)
+		{
+			Nokia5110_ClearBuffer();
+			Nokia5110_DisplayBuffer();
+			showCongratulation();
+			historyRecord = score;
+		}
+}
+int main(void)
+{
+	uint32_t i;
+	uint8_t primera_vez;
+	ConfiguraSysTick();
+	Nokia5110_Init();
+	Nokia5110_Clear();
+	ConfigUART0();
+	stop = 0;
+	while (1)
+	{
+		logoJuego();
+		setName(nickName);
+		setLevel(&level);
+		Nokia5110_DisplayBuffer();
+		primera_vez = 1;
+		score = 0;
+		reset = 0;
+		while (vidas > 0 && reset == 0)
+		{
+			Nokia5110_ClearBuffer();
+			evaluarMovimientoDisparo(&carro.y, &bala1.isVisible, &bala1.y, &stop, &reset);
+			Nokia5110_PrintBMP(carro.x, carro.y, Rocket, 2);
+			showScore(score);
+			showNumberOfHearts();
+			if (primera_vez)
+			{
+				showScore(0);
+				mostrarCamino();
+				for (i = 0; i < 2000000; i++)
+				{
+				}
+				enemigo1.x = 64;
+				enemigo1.isVisible = 0;
+				enemigo2.x = 64;
+				enemigo2.isVisible = 0;
+				enemigo3.x = 64;
+				enemigo3.isVisible = 0;
+				score = 0;
+			}
+			if (enemigo1.isVisible)Nokia5110_PrintBMP(enemigo1.x, enemigo1.y, Enemigo, 2);
+			if (enemigo2.isVisible)Nokia5110_PrintBMP(enemigo2.x, enemigo2.y, Enemigo, 2);
+			if (enemigo3.isVisible)Nokia5110_PrintBMP(enemigo3.x, enemigo3.y, Enemigo, 2);
+			if (bala1.isVisible)Nokia5110_PrintBMP(bala1.x, bala1.y, Bala, 2);
+			mostrarCamino();
+			if (vidas != vidaAnterior)
+			{
+				carro.y = 47;
+				enemigo1.x = 64;
+				enemigo1.isVisible = 0;
+				enemigo2.x = 64;
+				enemigo2.isVisible = 0;
+				enemigo3.x = 64;
+				enemigo3.isVisible = 0;
+				stop = 1;
+				showNumberOfHearts();
+				stop = 0;
+				vidaAnterior = vidas;
+			}
+			else
+			{
+				evaluarChoque();
+			}
+			// if(carro.y==8)vidas--;
+			for (int o = 0; o < 80000; o++)
+			{
+			}
+			primera_vez = 0;
+		}
+		evaluateCongratulation();
+		guardarScore();
 		jugada == 4 ? jugada = 4 : jugada++;
-		if (reset == 0)
-			showRecords();
+		if (reset == 0)showRecords();
 		vidas = 3;
 		score = 0;
 		nickName[0] = '-';
