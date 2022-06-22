@@ -26,7 +26,7 @@
 #include "Timer.h"
 #include "LogicGame.h"
 
-const uint32_t vel_level[] = {1000, 300, 250, 200, 150, 100};
+const uint32_t vel_level[] = {1000, 150, 125, 100, 150, 100};
 uint8_t level = 0;
 int score = 0;
 int vidas = 3;

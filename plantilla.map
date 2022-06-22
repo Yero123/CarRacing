@@ -917,12 +917,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1104         76        480          0        504       7009   nokia5110.o
-      3524        474       3668        204          0      16486   programa1.o
-       692        632          0          0       1024        892   startup.o
+      1104         76        480          0        504       6917   nokia5110.o
+      3524        474       3668        204          0      16318   programa1.o
+       692        632          0          0       1024        884   startup.o
 
     ----------------------------------------------------------------------
-      5328       1182       4180        204       1528      24387   Object Totals
+      5328       1182       4180        204       1528      24119   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          0          0          0          0   (incl. Padding)
 
@@ -984,8 +984,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6368       1246       4180        204       1852      23795   Grand Totals
-      6368       1246       4180        204       1852      23795   ELF Image Totals
+      6368       1246       4180        204       1852      23527   Grand Totals
+      6368       1246       4180        204       1852      23527   ELF Image Totals
       6368       1246       4180        204          0          0   ROM Totals
 
 ==============================================================================

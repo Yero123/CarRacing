@@ -445,6 +445,11 @@
               <FileType>5</FileType>
               <FilePath>.\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>Assets.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Assets.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
