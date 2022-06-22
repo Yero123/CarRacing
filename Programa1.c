@@ -20,7 +20,6 @@
 #include <stdio.h>
 
 #include "tm4c123gh6pm.h"
-#include "Nokia5110.h"
 #include <math.h>
 #include "DAC.h"
 #include "Timer.h"
@@ -41,11 +40,11 @@ int i = 0;
 int tiempo = 0;
 int disparar = 0;
 int count = 0;
-	int puntajes[3];
-	int mayorPuntaje = 0;
-	int menorPuntaje = 0;
-	int jugada = 1;
-	int reset = 0;
+int puntajes[3];
+int mayorPuntaje = 0;
+int menorPuntaje = 0;
+int jugada = 1;
+int reset = 0;
 struct bala
 {
 	int isCrashed;
@@ -55,30 +54,12 @@ struct bala
 } bala1 = {0, 0, 15, 30},
   bala2 = {0, 0, 30, 30},
   bala3 = {0, 0, 30, 30};
-
-struct enemigo
-{
-	int isCrashed;
-	int isVisible;
-	int x;
-	int y;
-} enemigo1 = {0, 0, 64, 47},
-  enemigo2 = {0, 0, 64, 29},
-  enemigo3 = {0, 0, 64, 8};
-
-struct player
-{
-	char nickName[3];
-	int puntaje;
-} player1 = {"PL1", 0},
-  player2 = {"PL2", 0},
-  player3 = {"PL3", 0};
-
 struct carro
 {
 	int x;
 	int y;
 } carro = {2, 47};
+
 
 void SysTick_Handler()
 {
@@ -174,24 +155,7 @@ void SysTick_Handler()
 	}
 }
 
-void showNumberOfHearts()
-{
-	if (vidas == 3)
-	{
-		Nokia5110_PrintBMP(78, 47, Corazon, 0);
-		Nokia5110_PrintBMP(72, 47, Corazon, 0);
-		Nokia5110_PrintBMP(66, 47, Corazon, 0);
-	}
-	else if (vidas == 2)
-	{
-		Nokia5110_PrintBMP(78, 47, Corazon, 0);
-		Nokia5110_PrintBMP(72, 47, Corazon, 0);
-	}
-	else if (vidas == 1)
-	{
-		Nokia5110_PrintBMP(78, 47, Corazon, 0);
-	}
-}
+
 
 void showRecords()
 {
@@ -243,7 +207,6 @@ void showRecords()
 			sprintf(str3, "%c%c%c: %d", player1.nickName[0], player1.nickName[1], player1.nickName[2], player1.puntaje);
 		}
 	}
-	// int b= sprintf(str3,"%c%c%c: %d \r\n",'a','a','a',score);
 	int a;
 	Nokia5110_SetCursor(2, 0);
 	Nokia5110_OutString("Records");
@@ -256,32 +219,6 @@ void showRecords()
 	a = RxCar();
 }
 
-void showCongratulation()
-{
-	int a;
-	Nokia5110_SetCursor(0, 1);
-	Nokia5110_OutString("Mejor");
-	Nokia5110_SetCursor(0, 3);
-	Nokia5110_OutString("Puntaje");
-	Nokia5110_SetCursor(0, 4);
-	Nokia5110_OutString(":D");
-	a = RxCar();
-}
-void evaluarChoque()
-{
-	if (enemigo1.isVisible == 1 && enemigo1.x == 16 && enemigo1.y == carro.y)
-	{
-		vidas--;
-	}
-	if (enemigo2.isVisible == 1 && enemigo2.x == 16 && enemigo2.y == carro.y)
-	{
-		vidas--;
-	}
-	if (enemigo3.isVisible == 1 && enemigo3.x == 16 && enemigo3.y == carro.y)
-	{
-		vidas--;
-	}
-}
 void guardarScore(){
 	if (jugada < 4)
 		{
@@ -348,22 +285,6 @@ void guardarScore(){
 
 }
 
-void mostrarCamino(){
-	Nokia5110_DisplayBuffer();
-				Nokia5110_SetCursor(0, 1);
-				Nokia5110_OutString("__________");
-				Nokia5110_SetCursor(0, 4);
-				Nokia5110_OutString("----------");
-}
-void evaluateCongratulation(){
-		if (score > historyRecord)
-		{
-			Nokia5110_ClearBuffer();
-			Nokia5110_DisplayBuffer();
-			showCongratulation();
-			historyRecord = score;
-		}
-}
 int main(void)
 {
 	uint32_t i;
@@ -388,20 +309,16 @@ int main(void)
 			evaluarMovimientoDisparo(&carro.y, &bala1.isVisible, &bala1.y, &stop, &reset);
 			Nokia5110_PrintBMP(carro.x, carro.y, Rocket, 2);
 			showScore(score);
-			showNumberOfHearts();
+			showHistoryRecord(historyRecord);
+			showNumberOfHearts(&vidas);
 			if (primera_vez)
 			{
 				showScore(0);
 				mostrarCamino();
-				for (i = 0; i < 2000000; i++)
-				{
-				}
-				enemigo1.x = 64;
-				enemigo1.isVisible = 0;
-				enemigo2.x = 64;
-				enemigo2.isVisible = 0;
-				enemigo3.x = 64;
-				enemigo3.isVisible = 0;
+				for (i = 0; i < 2000000; i++){}
+				enemigo1.x = 64;enemigo1.isVisible = 0;
+				enemigo2.x = 64;enemigo2.isVisible = 0;
+				enemigo3.x = 64;enemigo3.isVisible = 0;
 				score = 0;
 			}
 			if (enemigo1.isVisible)Nokia5110_PrintBMP(enemigo1.x, enemigo1.y, Enemigo, 2);
@@ -412,28 +329,18 @@ int main(void)
 			if (vidas != vidaAnterior)
 			{
 				carro.y = 47;
-				enemigo1.x = 64;
-				enemigo1.isVisible = 0;
-				enemigo2.x = 64;
-				enemigo2.isVisible = 0;
-				enemigo3.x = 64;
-				enemigo3.isVisible = 0;
-				stop = 1;
-				showNumberOfHearts();
-				stop = 0;
+				enemigo1.x = 64;enemigo1.isVisible = 0;
+				enemigo2.x = 64;enemigo2.isVisible = 0;
+				enemigo3.x = 64;enemigo3.isVisible = 0;
 				vidaAnterior = vidas;
 			}
 			else
 			{
-				evaluarChoque();
+				evaluarChoque(&vidas,enemigo1,enemigo2,enemigo3,carro.y);
 			}
-			// if(carro.y==8)vidas--;
-			for (int o = 0; o < 80000; o++)
-			{
-			}
+			for (int o = 0; o < 80000; o++){}
 			primera_vez = 0;
 		}
-		evaluateCongratulation();
 		guardarScore();
 		jugada == 4 ? jugada = 4 : jugada++;
 		if (reset == 0)showRecords();
