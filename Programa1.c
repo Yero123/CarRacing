@@ -172,15 +172,18 @@ void SysTick_Handler()
 
 void showNumberOfHearts()
 {
-	int a;
-	Nokia5110_SetCursor(0, 1);
-	Nokia5110_OutString("Te quedan");
-	Nokia5110_SetCursor(0, 2);
-	Nokia5110_OutString("3 vidas");
-	a = RxCar();
-	enemigo1.x = 64;
-	enemigo2.x = 64;
-	enemigo3.x = 64;
+  if(vidas == 3){
+		Nokia5110_PrintBMP(78, 47, Corazon, 0);
+	  Nokia5110_PrintBMP(72, 47, Corazon, 0);
+	  Nokia5110_PrintBMP(66, 47, Corazon, 0);
+	}
+	else if(vidas == 2){
+		Nokia5110_PrintBMP(78, 47, Corazon, 0);
+	  Nokia5110_PrintBMP(72, 47, Corazon, 0);
+	}
+	else if (vidas == 1){
+		Nokia5110_PrintBMP(78, 47, Corazon, 0);
+	}
 }
 
 void showRecords()
@@ -201,8 +204,8 @@ void showRecords()
 		}
 		else
 		{
-			sprintf(str2, "%c%c%c: %d", player2.nickName[0], player2.nickName[1], player2.nickName[2], player2.puntaje);
-			sprintf(str3, "%c%c%c: %d", player3.nickName[0], player3.nickName[1], player3.nickName[2], player3.puntaje);
+			sprintf(str2, "%c%c%c: %d", player3.nickName[0], player3.nickName[1], player3.nickName[2], player3.puntaje);
+			sprintf(str3, "%c%c%c: %d", player2.nickName[0], player2.nickName[1], player2.nickName[2], player2.puntaje);
 		}
 	}
 	if (player2.puntaje > player1.puntaje && player2.puntaje > player3.puntaje)
@@ -254,26 +257,29 @@ void showCongratulation()
 	Nokia5110_SetCursor(0, 3);
 	Nokia5110_OutString("Puntaje");
 	Nokia5110_SetCursor(0, 4);
-	Nokia5110_OutString(":3");
+	Nokia5110_OutString(":D");
 	a = RxCar();
 }
 void evaluarChoque()
 {
-	if (enemigo1.isVisible == 1 && enemigo1.x == 24 && enemigo1.y == carro.y)
+	if (enemigo1.isVisible == 1 && enemigo1.x == 16 && enemigo1.y == carro.y)
 	{
 		vidas--;
 	}
-	if (enemigo2.isVisible == 1 && enemigo2.x == 24 && enemigo2.y == carro.y)
+	if (enemigo2.isVisible == 1 && enemigo2.x == 16 && enemigo2.y == carro.y)
 	{
 		vidas--;
 	}
-	if (enemigo3.isVisible == 1 && enemigo3.x == 24 && enemigo3.y == carro.y)
+	if (enemigo3.isVisible == 1 && enemigo3.x == 16 && enemigo3.y == carro.y)
 	{
 		vidas--;
 	}
 }
 int main(void)
 {
+	uint32_t i;
+	uint8_t primera_vez;
+	int puntajes[3];
 	ConfiguraSysTick();
 	Nokia5110_Init();
 	Nokia5110_Clear();
@@ -294,6 +300,8 @@ int main(void)
 		setName(nickName);
 		setLevel(&level);
 		Nokia5110_DisplayBuffer();
+		primera_vez = 1;
+		score = 0;
 		while (vidas > 0)
 		{
 
@@ -302,6 +310,23 @@ int main(void)
 			evaluarMovimientoDisparo(&carro.y, &bala1.isVisible, &bala1.y);
 			Nokia5110_PrintBMP(carro.x, carro.y, Rocket, 2);
 			showScore(score);
+			showNumberOfHearts();
+			if(primera_vez){
+				showScore(0);
+				Nokia5110_DisplayBuffer();
+				Nokia5110_SetCursor(0,1);
+			  Nokia5110_OutString("__________");
+			  Nokia5110_SetCursor(0,4);
+			  Nokia5110_OutString("----------");
+        for(i=0;i<2000000;i++){}		
+        enemigo1.x = 64;
+				enemigo1.isVisible = 0;
+				enemigo2.x = 64;
+				enemigo2.isVisible = 0;
+				enemigo3.x = 64;
+				enemigo3.isVisible = 0;
+        score = 0;					
+			}
 			if (enemigo1.isVisible)
 				Nokia5110_PrintBMP(enemigo1.x, enemigo1.y, Enemigo, 2);
 			if (enemigo2.isVisible)
@@ -318,10 +343,14 @@ int main(void)
 
 			if (vidas != vidaAnterior)
 			{
-				Nokia5110_ClearBuffer();
-				Nokia5110_DisplayBuffer();
-				carro.y = 47;
-				stop = 1;
+				carro.y=47;
+				enemigo1.x = 64;
+				enemigo1.isVisible = 0;
+				enemigo2.x = 64;
+				enemigo2.isVisible = 0;
+				enemigo3.x = 64;
+				enemigo3.isVisible = 0;
+				stop=1;
 				showNumberOfHearts();
 				stop = 0;
 				vidaAnterior = vidas;
@@ -331,9 +360,8 @@ int main(void)
 				evaluarChoque();
 			}
 			// if(carro.y==8)vidas--;
-			for (int o = 0; o < 80000; o++)
-			{
-			}
+			for (int o = 0; o < 80000; o++){}
+			primera_vez = 0;
 		}
 		if (score > historyRecord)
 		{
@@ -366,7 +394,10 @@ int main(void)
 		}
 		else
 		{
-			int puntajes[3] = {player1.puntaje, player2.puntaje, player3.puntaje};
+			puntajes[0]= player1.puntaje;
+      puntajes[1]=player2.puntaje;
+      puntajes[2]=player3.puntaje;
+
 			menorPuntaje = calculaMenor(puntajes);
 			if (score > menorPuntaje)
 			{
