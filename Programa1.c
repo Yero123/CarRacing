@@ -26,7 +26,7 @@
 #include "Timer.h"
 #include "LogicGame.h"
 
-const uint32_t vel_level[] = {1000, 150, 125, 100, 150, 100};
+const uint32_t vel_level[] = {1000, 150, 125, 100, 75, 50};
 uint8_t level = 0;
 int score = 0;
 int vidas = 3;
@@ -116,29 +116,29 @@ void SysTick_Handler()
 		}
 		if (tiempo >= vel_level[level])
 		{
-			if (enemigo1.x < 20)
+			if (enemigo1.x < 5)
 			{
 				enemigo1.isVisible = 0;
 			}
 			else
 			{
-				enemigo1.x = enemigo1.x - 10;
+				enemigo1.x = enemigo1.x - 6;
 			}
-			if (enemigo2.x < 20)
+			if (enemigo2.x < 5)
 			{
 				enemigo2.isVisible = 0;
 			}
 			else
 			{
-				enemigo2.x = enemigo2.x - 10;
+				enemigo2.x = enemigo2.x - 6;
 			}
-			if (enemigo3.x < 20)
+			if (enemigo3.x < 5)
 			{
 				enemigo3.isVisible = 0;
 			}
 			else
 			{
-				enemigo3.x = enemigo3.x - 10;
+				enemigo3.x = enemigo3.x - 6;
 			}
 			score = score + 7;
 			tiempo = 0;
